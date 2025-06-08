@@ -1,6 +1,6 @@
 'use client';
 
-import { Task, TaskStats } from '@/types';
+import { Task } from '@/types';
 import { getTaskStats } from '@/utils/taskUtils';
 import TaskTable from './TaskTable';
 import { useState } from 'react';

@@ -2,7 +2,7 @@
 
 import { Task } from '@/types';
 import { getStatusColor, getProgressColor, formatDate, filterTasks } from '@/utils/taskUtils';
-import { getTaskCategory, getCategoryIcon, groupTasksByPriority } from '@/utils/categoryUtils';
+import { getTaskCategory, groupTasksByPriority } from '@/utils/categoryUtils';
 import { useState } from 'react';
 import TaskModal from './TaskModal';
 

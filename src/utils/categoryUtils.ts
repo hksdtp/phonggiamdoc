@@ -11,7 +11,6 @@ export type TaskCategory = {
 export const getTaskCategory = (task: Task): TaskCategory => {
   const department = task.department?.toUpperCase() || '';
   const title = task.title.toLowerCase();
-  const description = task.description.toLowerCase();
 
   // Dự án quan trọng (có sao)
   if (

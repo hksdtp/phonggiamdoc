@@ -7,7 +7,7 @@ import { join } from 'path';
 const GOOGLE_SHEET_ID = process.env.GOOGLE_SHEET_ID || '';
 const SHEET_RANGE = process.env.SHEET_RANGE || 'Tasks!A:K'; // Default range
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     // Check if Google Sheet ID is configured
     if (!GOOGLE_SHEET_ID) {
@@ -120,7 +120,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-async function updateTasksFile(tasks: any[]) {
+async function updateTasksFile(tasks: Record<string, unknown>[]) {
   try {
     const tasksFilePath = join(process.cwd(), 'src/data/tasks.ts');
     

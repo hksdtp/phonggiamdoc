@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { writeFileSync } from 'fs';
 import { join } from 'path';
-import { readGoogleSheet } from '@/lib/google-sheets';
 
 // Security token for webhook authentication
 const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET || 'your-secret-token';
@@ -32,7 +31,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Transform and validate task data
-    const tasks = payload.data.map((task: any, index: number) => {
+    const tasks = payload.data.map((task: Record<string, unknown>, index: number) => {
       return {
         id: task.id || index + 1,
         title: task.title || '',
@@ -78,7 +77,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-async function updateTasksFile(tasks: any[]) {
+async function updateTasksFile(tasks: Record<string, unknown>[]) {
   try {
     const tasksFilePath = join(process.cwd(), 'src/data/tasks.ts');
     
