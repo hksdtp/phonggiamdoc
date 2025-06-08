@@ -21,8 +21,8 @@ function getServiceAccountCredentials() {
   // Fallback to file (for development)
   try {
     const SERVICE_ACCOUNT_PATH = path.join(process.cwd(), 'credentials', 'service-account.json');
-    const fs = require('fs');
-    const credentials = JSON.parse(fs.readFileSync(SERVICE_ACCOUNT_PATH, 'utf8'));
+    const { readFileSync } = await import('fs');
+    const credentials = JSON.parse(readFileSync(SERVICE_ACCOUNT_PATH, 'utf8'));
     return credentials;
   } catch (error) {
     console.error('Error loading service account file:', error);
