@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
         notes: task.notes || '',
         feedback: task.feedback || ''
       };
-    }).filter(task => task.title.trim() !== ''); // Remove empty tasks
+    }).filter((task: Record<string, unknown>) => String(task.title || '').trim() !== ''); // Remove empty tasks
 
     console.log(`Processing ${tasks.length} valid tasks`);
 
