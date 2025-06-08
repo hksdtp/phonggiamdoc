@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
         description: task.description || '',
         department: task.department || '',
         assignee: task.assignee || '',
-        progress: Math.max(0, Math.min(100, parseInt(task.progress) || 0)),
+        progress: Math.max(0, Math.min(100, parseInt(String(task.progress || 0)) || 0)),
         status: task.status || '',
         startDate: task.startDate || '',
         endDate: task.endDate || '',
