@@ -120,7 +120,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-async function updateTasksFile(tasks: Record<string, unknown>[]) {
+async function updateTasksFile(tasks: unknown[]) {
   try {
     const tasksFilePath = join(process.cwd(), 'src/data/tasks.ts');
     
